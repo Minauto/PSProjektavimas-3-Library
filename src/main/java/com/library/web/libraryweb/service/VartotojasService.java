@@ -10,8 +10,6 @@ import com.library.web.libraryweb.validation.PhoneValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-//@Component
 @Service
 
 public class VartotojasService {
@@ -51,7 +49,6 @@ public class VartotojasService {
             errorCode = 3;
             System.out.println("Error Code = "+ errorCode +" PasswordChecker failed");
         }
-
         if(errorCode == 0){
             repository.save(d);
         }
@@ -61,12 +58,12 @@ public class VartotojasService {
 
         int errorCode = 0;
 
-        bool = emailValidator.isValid(d.getEmail());// checkTLD was returning false when should be true, was missing a not symbol ( ! )
+        bool = emailValidator.isValid(d.getEmail());
         if(!bool){
             errorCode = 1;
             System.out.println("Error Code = "+ errorCode +" EmailValidator failed");
         }
-        bool = phoneValidator.isValid(d.getTelefonoNumeris());// checkOnlyNumbers fails with +370 prefix
+        bool = phoneValidator.isValid(d.getTelefonoNumeris());
         if(!bool){
             errorCode = 2;
             System.out.println("Error Code = "+ errorCode +" PhoneValidator failed");
@@ -80,7 +77,6 @@ public class VartotojasService {
         if(errorCode == 0){
             return repository.save(d);
         }
-
         return new Vartotojas("","","","","","");
     }
 

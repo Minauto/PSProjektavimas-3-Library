@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity // map to db table. Default table name is the name of entity class
+@Entity
 public class Vartotojas implements Comparable<Vartotojas>{
 
     @Id
